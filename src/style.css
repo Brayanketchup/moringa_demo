@@ -103,15 +103,22 @@ overflow: hidden;
     transition: 0.4s;
   }
 
+/* general slides zise settings */
+
 .slider{
   height: 95vh;
   overflow: hidden;
 }
+
 .slide{
+  
   height: 95vh;
   width: 110%;
   position: relative;
   left: -5%;
+  opacity: 1;
+  display: block;
+  
 }
 .slideImage{
   min-width: 100%;
@@ -119,6 +126,12 @@ overflow: hidden;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity .9s ease-in-out;
+}
+
+.slideImage.active{
+  opacity: 1;
 }
 
 
@@ -129,17 +142,22 @@ overflow: hidden;
   height: 100vh;
   color: white;
   position: absolute;
-  display: flex;
+  display: none;
   flex-direction: column;
   text-align: center;
   align-items: center;
   justify-content: center;
   z-index: 1;
 }
+.slideText.active{
+  display: flex;
+}
+
 
 .slideText h1{
   font-size: 7vw;
   font-weight: 900;
+  animation: slide-right 1s forwards;
 }
 .slideText h2{
   font-size: 1.5vw;
@@ -149,6 +167,7 @@ overflow: hidden;
 }
 .slideText h2,h3{
   font-weight: 600;
+  animation: slide-left 1s forwards;
 }
 
 /* change slide buttoms */
@@ -182,13 +201,6 @@ overflow: hidden;
   right: 0px;
 }
 
-
-.slideChangeButtom:hover{
-  opacity: 1;
-}
-
-
-
   @keyframes slide-right {
     from {
       transform: translateX(-100%);
@@ -217,6 +229,8 @@ overflow: hidden;
       left: 0;
     }
   }
+
+
 
 
 @media (max-width: 1141px){
@@ -261,6 +275,21 @@ overflow: hidden;
       position: relative;
     }
 
+    .mobile_display_overlay{
+    bottom: 0;
+    pointer-events: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    right: -100%;
+    background: #000000;
+    opacity: .5;
+    transition: right .6s ease-in-out;
+    z-index: 6;
+    }
+    .menu.active, .mobile_display_overlay.active{
+      right: 0;
+    } 
     .slideText h1{
       font-size: 8vw;
     }
@@ -277,21 +306,7 @@ overflow: hidden;
 
   }
 
-    /* .mobile_display_overlay{
-    bottom: 0;
-    pointer-events: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    right: -100%;
-    background: #000000;
-    opacity: .5;
-    transition: right .6s ease-in-out;
-    z-index: 6;
-    }
-    .menu.active, .mobile_display_overlay.active{
-      right: 0;
-    } */
+
 
     /* slide image change accourding to size of image */
     /* .slider{
