@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -20,18 +21,19 @@ body {
     z-index: 999;
     transition: opacity 0.5s ease-out;
 }
-/* navbar section */
 
+
+/* navbar section */
 header {
     height: 100px;
     background-color: white;
-    padding: 10px 10vw;
+    padding: 10px 5vw;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
 }
 
-
+/* navegation bar inside header */
   .navlogo img {
     height: 60px;
     width: 300px;
@@ -44,6 +46,7 @@ header {
   padding: 10px;
   }
 
+  /* menu personalization */
   .menu{
     display: inline-flex;
   }
@@ -67,7 +70,7 @@ header {
     content: "";
     display: flex;
     height: 3px;
-    background-color: black;
+    background-color: #16b616d5;
     opacity: 0;
 
 }
@@ -80,10 +83,13 @@ header {
 .menu_bottom {
 overflow: hidden;
 }
+
  .current{
     color: #16b616d5;
   }
 
+
+  /* hamburger menu */
   .hamburger{
     display: none;
     cursor: pointer;
@@ -92,10 +98,95 @@ overflow: hidden;
   .bar{
     height: 3px;
     width: 25px;
-    background-color: black;
+    background-color: #9bc31a;
     margin: 5px 0;
     transition: 0.4s;
   }
+
+.slider{
+  height: 95vh;
+  overflow: hidden;
+}
+.slide{
+  height: 95vh;
+  width: 110%;
+  position: relative;
+  left: -5%;
+}
+.slideImage{
+  min-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* slide text */
+.slideText{
+  width: 75%;
+  margin: 0 13% 0 13%;
+  height: 100vh;
+  color: white;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.slideText h1{
+  font-size: 7vw;
+  font-weight: 900;
+}
+.slideText h2{
+  font-size: 1.5vw;
+}
+.slideText h3{
+  font-size: 1vw;
+}
+.slideText h2,h3{
+  font-weight: 600;
+}
+
+/* change slide buttoms */
+.slideChangeButtomSection{
+  position: absolute;
+  height: 95vh;
+  width: 10%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  z-index: 1;
+}
+
+.slideChangeButtom{
+  display: flex;
+  align-content: center;
+  min-height: 5vw;
+  min-width: 5vw;
+  margin: 5px;
+  border: dashed white 3px;
+  border-radius: 50%;
+  opacity: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  transition: opacity .5s ease;
+}
+
+.SlideChangeRightButtom {
+  top: 100px;
+  right: 0px;
+}
+
+
+.slideChangeButtom:hover{
+  opacity: 1;
+}
+
 
 
   @keyframes slide-right {
@@ -128,10 +219,12 @@ overflow: hidden;
   }
 
 
-@media (max-width: 958px){
+@media (max-width: 1141px){
     
     .hamburger{
-      display: block;
+      display: inline-block;
+      right: 3vw;
+      position: fixed;
       z-index: 7;
     }
     .hamburger.active .bar:nth-child(1){
@@ -144,26 +237,47 @@ overflow: hidden;
       transform: rotate(45deg) translate(-4px,-6px);
     }
     .menu {
-      display: none;
       position: fixed;
-      visibility: none;
       top: 0px;
       padding-top: 70px;
       right: -100%;
       background-color: #333;
-      display: flex;
       transition: right 0.5s ease;
       flex-direction: column;
       height: 100%;
       margin: 0;
       z-index: 6;
     }
-    .menu_bottom{
-      justify-content: center;
-      top: 0px;
-      padding: 15px 30px 15px 30px;
+    .menu, li, a{
+      color: white;
     }
-    .mobile_display_overlay{
+
+    .menu, li {
+      justify-content: flex-start;
+    }
+    .menu_bottom{
+      display: list-item;
+      padding: 15px 30px 15px 30px;
+      position: relative;
+    }
+
+    .slideText h1{
+      font-size: 8vw;
+    }
+    .slideText h2{
+      font-size: 2.5vw;
+    }
+    .slideText h3{
+      font-size: 2vw;
+    }
+    .slideText h2,h3{
+      font-weight: 600;
+    }
+
+
+  }
+
+    /* .mobile_display_overlay{
     bottom: 0;
     pointer-events: none;
     position: fixed;
@@ -177,7 +291,25 @@ overflow: hidden;
     }
     .menu.active, .mobile_display_overlay.active{
       right: 0;
+    } */
+
+    /* slide image change accourding to size of image */
+    /* .slider{
+      height: auto;
+    } */
+    /* .slideChangeButtomSection{ */
+      /* height: auto; */
+    /* }
+    .slide{
+      width: -webkit-fill-available;
     }
+    .slideImage{
+      width: auto; */
+    /* } */
+
+
+
+/* 
     #image1, #image2 {
       left: -30%;
       height: 720px;
@@ -189,5 +321,5 @@ overflow: hidden;
     }
     .change-slide {
       width: 55px;
-    }
-  }
+    } */
+  /* } */
