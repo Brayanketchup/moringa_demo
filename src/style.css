@@ -52,14 +52,12 @@ header {
     display: inline-flex;
   }
   
-  .menu, li {
-    display: inline-flex;
+  .menu_bottom {
     list-style: none;
     margin: 0 10px;
-    justify-content: center;
   }
 
-  .menu, li, a{
+  .menuText{
     font-weight: 400;
     color: black;
     text-decoration: none;
@@ -204,7 +202,7 @@ overflow: hidden;
 
 
 /* certificates settings*/
-.CertificateSection {
+.Certificates {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -232,7 +230,6 @@ overflow: hidden;
 
 .interactiveMap{
   width: 100%;
-  /* height: 95vh; */
   height: 52vw;
   border: none;
 }
@@ -250,6 +247,99 @@ overflow: hidden;
     top: -35px;
 }
 
+.horizontalLine{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 75%;
+  background-color: #0000002e;
+}
+
+
+/* ecuamoringa extra information */
+#extraInformativeSection{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+}
+.extraInfo{
+  width: 75vh;
+  margin: 15px;
+}
+
+
+/* footer section */
+#contactFooterInfo{
+  width: 100%;
+  height: 70px;
+  border: solid #111111;
+  background-color: #111111;
+  color: white;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+.copyrightM{
+  position: relative;
+  left: 15%;
+}
+
+.socialLinkIcon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+
+}
+.contactLinks{
+  display: inline-flex;
+  position: relative;
+  right: 15%;
+  list-style: none;
+}
+
+
+.socialLink{
+  text-decoration: none;
+  border: dashed rgb(80, 80, 80) 1px;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  margin: 15px 5px;
+}
+
+/* auto Scroll buttom */
+
+.autoScrollButtom{
+  position: fixed;
+  right: 3%;
+  bottom: 13%;
+}
+
+.ScrollButtom{
+  display: inline-flex;
+  height: 50px;
+  width: 50px;
+  background-color: #209e2e;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.ScrollButtomDec{
+  position: relative;
+  color: #209e2e;
+  left: -10px;
+  top: -20px;
+}
 
 
 
@@ -313,15 +403,14 @@ overflow: hidden;
       height: 100%;
       margin: 0;
       z-index: 6;
+      justify-content: flex-start;
     }
-    .menu, li, a{
+    .menuText{
       color: white;
     }
 
-    .menu, li {
-      justify-content: flex-start;
-    }
     .menu_bottom{
+      justify-content: flex-start;
       display: inline-flex;
       padding: 15px 30px 15px 30px;
       position: relative;
@@ -357,36 +446,3 @@ overflow: hidden;
 
 
   }
-
-
-
-    /* slide image change accourding to size of image */
-    /* .slider{
-      height: auto;
-    } */
-    /* .slideChangeButtomSection{ */
-      /* height: auto; */
-    /* }
-    .slide{
-      width: -webkit-fill-available;
-    }
-    .slideImage{
-      width: auto; */
-    /* } */
-
-
-
-/* 
-    #image1, #image2 {
-      left: -30%;
-      height: 720px;
-      width: 1000px;
-    }
-    .slide-bottoms{
-      height: 40px;
-      width: 40px;
-    }
-    .change-slide {
-      width: 55px;
-    } */
-  /* } */
