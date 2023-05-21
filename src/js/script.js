@@ -2,11 +2,6 @@
 const loadcontainer = document.querySelector(".load");
 const loadImage = document.querySelector(".loadImage"); 
 
-//hamburger variables
-const hamburgerMenu = document.querySelector('.hamburger');
-const menu = document.querySelector('.menu');
-const overlay = document.querySelector('.mobile_display_overlay');
-
 // slider variables
 const slideChangeButtom = document.querySelectorAll('.slideChangeButtom');
 const slider = document.querySelector('.slider');
@@ -34,15 +29,6 @@ window.onload= ()=>{
   loadImage.style.opacity = 0;
   setTimeout(()=>{ loadcontainer.style.display = "none"; },500);
 };
-
-
-//hamburger working settings
-hamburgerMenu.addEventListener('click', () => {
-  hamburgerMenu.classList.toggle('active');
-  menu.classList.toggle('active')
-  overlay.classList.toggle('active');
-})
-
 
 //show bottoms if mouse in the slider
 slider.addEventListener("mouseover", () => {
