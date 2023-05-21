@@ -1,35 +1,48 @@
-//load-img
 
-//select load img
-// const loadimg = document.querySelector(".load")
+const loadcontainer = document.querySelector(".load");
+const loadImage = document.querySelector(".loadImage"); 
 
-// on load set time out to make the loading img vanish
-window.onload = function(loaded){
-  setTimeout(() => {loadimg.style.opacity = 0 },2000);
-  loaded();
-}
-// once the animation is done, set the img display to none
-function loaded(){
-  loadimg.style.display = none;
-;}
-
-
-//hamburger menu setting
+//hamburger variables
 const hamburgerMenu = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
 const overlay = document.querySelector('.mobile_display_overlay');
 
+// slider variables
+const slideChangeButtom = document.querySelectorAll('.slideChangeButtom');
+const slider = document.querySelector('.slider');
+
+// slides information variables
+const slideImage = document.querySelectorAll('.slideImage');
+const slideText = document.querySelectorAll('.slideText');
+
+//slideChangeButtom variables
+const prevButtom = document.querySelector('.previousSlideButtom');
+const nextButtom = document.querySelector('.nextSlideButtom');
+let activeSlide = 0;
+
+
+//set the first slide on load
+window.onload= ()=>{
+  //activate slides
+  slideImage[activeSlide].classList.add('active');
+  slideText[activeSlide].classList.add('active');
+
+  //change slides every 9 seconds
+  setInterval(() => {nextSlide()}, 9000);
+
+  //remove loading image
+  loadImage.style.opacity = 0;
+  setTimeout(()=>{ loadcontainer.style.display = "none"; },500);
+};
+
+
+//hamburger working settings
 hamburgerMenu.addEventListener('click', () => {
   hamburgerMenu.classList.toggle('active');
   menu.classList.toggle('active')
   overlay.classList.toggle('active');
 })
 
-
-
-// slideChangeButtom
-const slideChangeButtom = document.querySelectorAll('.slideChangeButtom');
-const slider = document.querySelector('.slider');
 
 //show bottoms if mouse in the slider
 slider.addEventListener("mouseover", () => {
@@ -43,23 +56,6 @@ slider.addEventListener("mouseover", () => {
     slideChangeButtom[i].style.opacity = 0;
   }
 });
-
-//change slides settings
-const slideImage = document.querySelectorAll('.slideImage');
-const slideText = document.querySelectorAll('.slideText');
-
-let activeSlide = 0;
-// const activeSlide = document.querySelectorAll('.activeSlide');
-const prevButtom = document.querySelector('.previousSlideButtom');
-const nextButtom = document.querySelector('.nextSlideButtom');
-
-
-//set the first slide on load
-window.onload= ()=>{
-  slideImage[activeSlide].classList.add('active');
-  slideText[activeSlide].classList.add('active');
-
-};
 
 //previous and next buttoms action listener
 prevButtom.addEventListener('click', ()=> {
@@ -96,5 +92,4 @@ function prevSlide(){
 
   slideText[tempSlide].classList.remove('active');
   slideText[activeSlide].classList.add('active');
-
 };
