@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecu_demo</title>
-
-    <link rel="stylesheet" href="..\style.css">
-
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -17,16 +14,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+
+    
 </head>
-
 <body>
-    <div class="load">
-        <figure>
-            <img class="loadImage" src="..\images\ecuamoringa_logo.png" alt="Logo img">
-        </figure>
-    </div>
-
-    <!-- nav bar -->
+    <div class="load active"><img src="..\images\ecuamoringa_logo.png" alt="loading..." style="width: 90vw;"></div>
     <header>
         <section id="topSection">
             <figure class="navlogo">
@@ -37,7 +29,7 @@
 
         <div class="mobile_display_overlay"></div>
 
-        <!-- navbar icon -->
+
         <nav class="navbar">
 
             <div class="hamburger">
@@ -46,40 +38,43 @@
                 <div class="bar"></div>
             </div>
 
-            <!-- navbar buttoms -->
             <ul class="menu">
-                <li class="menu_bottom"><a target="blank" class="menuText" href="#">Inicio</a></li>
-                <li class="menu_bottom"><a target="blank" class="menuText" href="SobreNosotros.html">Sobre
-                        Nosotros</a></li>
-                <li class="menu_bottom"><a target="blank" class="menuText" href="QueEsLaMoringa.html">¿Qué es la
-                        moringa?</a></li>
-                <li class="menu_bottom"><a target="blank" class="menuText" href="Producto.html">Producto</a></li>
-                <li class="menu_bottom"><a target="blank" class="menuText current" href="Contacto.html">Contacto</a></li>
+                <li class="menu_bottom"><a onclick="loadIn()" data-route="/" class="menuText current" href="#">Inicio</a></li>
+                <li class="menu_bottom"><a onclick="loadIn()" data-route="/about" class="menuText" href="#">Sobre Nosotros</a></li>
+                <li class="menu_bottom"><a onclick="loadIn()" data-route="/mornga" class="menuText" href="#">¿Qué es la moringa?</a></li>
+                <li class="menu_bottom"><a onclick="loadIn()" data-route="/producto" class="menuText" href="#">Producto</a></li>
+                <li class="menu_bottom"><a onclick="loadIn()" data-route="/contact" class="menuText" href="#">Contacto</a></li>
             </ul>
         </nav>
     </header>
-    <div style="clear:both;"></div>
+    <div id="content"></div>
 
+
+    <!-- autoScroll bottom -->
     <div class="autoScrollButtom">
         <a class="ScrollButtom" href="#topSection"><i class="fa-solid fa-arrow-up" style="color: white;"></i></a>
         <a class="ScrollButtomDec" href="#topSection"><i class="fa-solid fa-leaf"></i></a>
     </div>
 
+    <!-- footer contact information -->
 
-    <section id="contactFooterInfo">
-        <div class="copyrightM">Copyright © Ecuamoringa 2022</div>
-        <ui class="contactLinks">
+    <footer>
+     <section id="contactFooterInfo">
+        
+            <div class="copyrightM">Copyright © Ecuamoringa 2022</div>
+            <ui class="contactLinks">
             <li class="socialLink"><a href="" class="socialLinkIcon"><i class="fa-brands fa-facebook-f"></i></a></li>
             <li class="socialLink"><a href="" class="socialLinkIcon"><i class="fa-brands fa-instagram"></i></a></li>
             <li class="socialLink"><a href="" class="socialLinkIcon"><i class="fa-brands fa-twitter"></i></a></i></li>
             <li class="socialLink"><a href="" class="socialLinkIcon"><i class="fa-solid fa-wifi"></i></a></i></li>
         </ui>
+        
     </section>
+    </footer>
+   
 
-
-
-    <script src="../js/load.js"></script>
-    <script src="../js/manu.js"></script>
+<script src="js/router.js"></script>
+<script src="js/MenuBottoms.js"></script>
 </body>
-
 </html>
+

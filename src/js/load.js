@@ -1,11 +1,14 @@
 
 
-const loadcontainer = document.querySelector(".load");
-const loadImage = document.querySelector(".loadImage"); 
 
-window.onload= ()=>{ 
-    //remove loading image
-    loadImage.style.opacity = 0;
-    setTimeout(()=>{ loadcontainer.style.display = "none"; },500);
-  };
-  
+
+// function loadIn(){
+//     var loadcontainer = document.querySelector(".load");
+//     loadcontainer.classList.add('active');
+// }
+const content = document.querySelector('.content');
+
+
+// var element = document.getElementById('content');
+// element.innerHTML = '<p>This is the injected HTML content</p>';
+// loadcontainer.style.opacity = 0;
