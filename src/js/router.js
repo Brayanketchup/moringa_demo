@@ -1,10 +1,4 @@
 
-
-//transition activators 
-function loadIn(){
-  var loadcontainer = document.querySelector(".load");
-  loadcontainer.classList.add('active');
-}
 function loadOut(){
   var loadcontainer = document.querySelector(".load");
   loadcontainer.classList.remove('active');
@@ -33,28 +27,32 @@ const routes = {
   }
   
   // Function to handle navigation and inject the appropriate HTML file
-  function navigateTo(route) {
+  function navigateTo(route, bid) {
     if (routes.hasOwnProperty(route)) {
       const fileName = routes[route];
       const contentContainer = document.getElementById('content');
       loadContent(`pages/${fileName}`, 'content');
-      window.history.pushState({},"",route);
+      window.history.pushState({bid},"",route);
     } else {
       console.error('Route not found:', route);
       navigateTo(404);
     }
   }
-  
-  // Add event listeners to handle navigation
+
   document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('a[data-route]');
-    links.forEach(link => {
-      link.addEventListener('click', (event) => {
+    const buttoms = document.querySelectorAll('.menuText');
+    buttoms.forEach(buttom => {
+      buttom.addEventListener('click', (event) => {
+        var loadcontainer = document.querySelector(".load");
+        loadcontainer.classList.add('active');
         event.preventDefault();
-        console.log("loading new page");
+        let prevCurrent = document.querySelector('.current');
+        prevCurrent.classList.remove("current");
         setTimeout(() => {
-            const route = link.getAttribute('data-route');
-            navigateTo(route);
+            const route = buttom.getAttribute('data-route');
+            const bid = buttom.getAttribute('id');
+            buttom.classList.add('current');
+            navigateTo(route, bid);
         }, 1000);
       });
     });

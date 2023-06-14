@@ -1,22 +1,32 @@
 *{
     scroll-behavior: smooth;
-
 }
-body{
-    background-color: rgba(95, 94, 94, 0.411);
 
+body{
+    /* background-color: rgba(95, 94, 94, 0.411); */
+    display: flex;
+    justify-content: center;
+    background-image: url('../images/features-hme-1-bg.jpg');
+    background-size: 100% 500px;
+}
+
+
+.carouselSection{
+  top: 50px;
+  position: relative;
 }
 
 .wrapper{
     width: 790px;
     background: rgba(0, 0, 0, 0);  
     position: relative;
+    overflow: hidden;
 }
 
  .card{
-    scroll-snap-align: start;
+    height: 200px;
     width: 250px;
-    DISPLAY: flex;
+    display: flex;
     position: relative;
     flex-direction: column;
     justify-content: center; 
@@ -26,9 +36,18 @@ body{
     padding: 40px 5px 10px 5px;
     overflow: hidden;
     border-radius: 10px;
+    touch-action: manipulation;
 } 
 
+.wrapper .carousel{
+    display: flex;
+    width: fit-content;
+  }
+  .iconContainerCarousel, .carouselText{
+    margin: 10px;
+  }
 
+/* card settings */
 .carouselText{
     text-align: center;
     transition: color 0.6s ease;
@@ -62,52 +81,12 @@ body{
     opacity: 1;
 }
 
- .card:hover .carouselText {
+ .card:hover .carouselText{
     color: white;
 }  
 
-  .wrapper .carousel{
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: calc(100% / 3);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 0;
-    gap: 1px;
-    border-radius: 8px;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-  }
-  .carousel::-webkit-scrollbar {
-    display: none;
-  }
-  .carousel.no-transition {
-    scroll-behavior: auto;
-  }
-  .carousel.dragging {
-    scroll-snap-type: none;
-    scroll-behavior: auto;
-  }
   .carousel.dragging .card {
     cursor: grab;
     user-select: none;
   }
-
-  @media screen and (max-width: 900px) {
-
-    .wrapper{
-      width: 525px;
-    }
-    .wrapper .carousel {
-      grid-auto-columns: calc(100% / 2);
-    }
-  }
-  @media screen and (max-width: 600px) {
-    .wrapper{
-      width: 260px;
-    }
-    .wrapper .carousel {
-      grid-auto-columns: 100%;
-    }
-}
 

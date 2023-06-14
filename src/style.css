@@ -123,8 +123,13 @@ overflow: hidden;
   background-color: #8dd18c78;
   position: relative;
   z-index: 1;
-  animation: slide-right 9s infinite;
+  left: -100%;
+
 }
+
+.progressBar.activated{
+  animation: moveBar 9s infinite;
+  }
 
 .slide{
   
@@ -390,6 +395,11 @@ overflow: hidden;
   font-weight: 500;
 }
 
+.carouselFrame{
+    width: 100%;
+    height: 400px;
+}
+
 
 
   @keyframes slide-right {
@@ -411,13 +421,10 @@ overflow: hidden;
 
   @keyframes moveBar {
     0% {
-      left: -100;
-    }
-    50%{
-      left: -50%;
+      left: -100%;
     }
     100% {
-      left: 0;
+      left: 0%;
     }
   }
 

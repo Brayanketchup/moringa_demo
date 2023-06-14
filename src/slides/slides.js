@@ -13,7 +13,13 @@ const prevButtom = document.querySelector('.previousSlideButtom');
 const nextButtom = document.querySelector('.nextSlideButtom');
 let activeSlide = 0;
 
+const progressBar = document.querySelector('.progressBar');
 
+function resertProgressBar(){
+  progressBar.classList.remove("activated");
+  void progressBar.offsetWidth;
+  progressBar.classList.add("activated");
+}
 //set the first slide on load
 window.onload= ()=>{
   //activate slides
@@ -21,11 +27,7 @@ window.onload= ()=>{
   slideText[activeSlide].classList.add('active');
 
   //change slides every 9 seconds
-  setInterval(() => {nextSlide()}, 9000);
-
-  // //remove loading image
-  // loadImage.style.opacity = 0;
-  // setTimeout(()=>{ loadcontainer.style.display = "none"; },500);
+  slideInterval = setInterval(() => {nextSlide()}, 9000);
 };
 
 //show bottoms if mouse in the slider
@@ -43,11 +45,17 @@ slider.addEventListener("mouseover", () => {
 
 //previous and next buttoms action listener
 prevButtom.addEventListener('click', ()=> {
-prevSlide()
+  resertProgressBar();
+  clearInterval(slideInterval);
+  slideInterval = setInterval(() => {nextSlide()}, 9000);
+  prevSlide();
 });
 
 nextButtom.addEventListener('click', ()=> {
-nextSlide();
+  resertProgressBar();
+  clearInterval(slideInterval);
+  slideInterval = setInterval(() => {nextSlide()}, 9000);
+  nextSlide();
 });
 
 //next slide bottom
