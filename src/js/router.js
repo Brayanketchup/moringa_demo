@@ -1,10 +1,10 @@
-
+//image load animation
 function loadOut(){
   var loadcontainer = document.querySelector(".load");
   loadcontainer.classList.remove('active');
 }
-// <!-- "/about /moringa  /producto /contact  /-->
 
+// <!-- "/about /moringa  /producto /contact  /-->
 const routes = {
     404: '404.html',
     '/': 'home.html',
@@ -14,7 +14,7 @@ const routes = {
     '/moringa': 'moringa.html'
   };
   
-  // Function to load the HTML content into a specific element
+  // load content specified by url into the content section, remove loading animation
   function loadContent(url, elementId) {
     fetch(url)
       .then(response => response.text())
@@ -26,7 +26,7 @@ const routes = {
       .catch(error => console.error('Error loading content:', error));
   }
   
-  // Function to handle navigation and inject the appropriate HTML file
+  // check if route exist, push history
   function navigateTo(route, bid) {
     if (routes.hasOwnProperty(route)) {
       const fileName = routes[route];
@@ -39,6 +39,7 @@ const routes = {
     }
   }
 
+  //listen for click in a menu bottom, activate the loading animation, change the current page indicator
   document.addEventListener('DOMContentLoaded', () => {
     const buttoms = document.querySelectorAll('.menuText');
     buttoms.forEach(buttom => {
@@ -58,6 +59,7 @@ const routes = {
     });
   });
 
+  //initialization
   navigateTo('/');
 
 
