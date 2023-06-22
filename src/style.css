@@ -284,35 +284,46 @@ overflow: hidden;
 
 
 /* ecuamoringa extra information images and text*/
+.moringaArticle{
+  position: relative;
+  top: 30px;
+  margin-bottom: 5%;
+}
 #extraInformativeSection{
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 
 }
-.extraInfo{
+.infoColumnWidth{
   width: 75vh;
   margin: 15px;
 }
 .infoParagraph{
   font-size: 16px;
   font-weight: 400;
-  color: #808080;
+  color: #888888;
+}
+.paragraphColumnWidth{
+  width: 75vw;
+  margin: 15px;
 }
 
-.storyTittle{
-  display: flex;
-  justify-content: center;
-}
-.Story{
+.centerColumn{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
+.ColumnWidth{
+  width: 45vw;
+  margin: 15px;
+}
+
 
 
 
 /* footer section */
+
 #contactFooterInfo{
   width: 100%;
   height: 110px;
@@ -399,13 +410,8 @@ article.whyUs {
 }
 
 .carouselFrame{
-    width: 100%;
-    height: 400px;
-}
-
-
-.infoParagraph{
-  color: #888888;
+  width: 100%;
+  height: 400px;
 }
 
 
@@ -419,28 +425,34 @@ article.whyUs {
   font-weight: 500;
 }
 
+.propiedadesMoringa{
+  margin: 10px;
+}
+
+
+/* rapersettings */
 .wrapper{
-    width: 790px;
-    background: rgba(0, 0, 0, 0);  
-    position: relative;
-    overflow: hidden;
+  width: 790px;
+  background: rgba(0, 0, 0, 0);  
+  position: relative;
+  overflow: hidden;
 }
 
  .card{
-    height: 200px;
-    width: 250px;
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;
-    background-color: #fff;
-    margin: 1px;
-    padding: 40px 5px 10px 5px;
-    overflow: hidden;
-    border-radius: 10px;
-    touch-action: manipulation;
-} 
+  height: 200px;
+  width: 250px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  background-color: #fff;
+  margin: 1px;
+  padding: 40px 5px 10px 5px;
+  overflow: hidden;
+  border-radius: 10px;
+  touch-action: manipulation;
+}
 
 .wrapper .carousel{
     display: flex;
@@ -494,9 +506,106 @@ article.whyUs {
   }
 
 
+  /* footer displat down */
+/* #indexFooter{
+  padding-top: 5%;
+} */
 
 
+  /* product page */
 
+
+.productList{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0px 5%;
+}
+
+.productCard{
+  width: 360px;
+  height: 420px;
+  margin: 20px 10px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.1), 
+              0px 7px 15px 0px rgba(0,0,0,0.3);
+}
+
+.productImg{
+  position: relative;
+  top: 15%;
+  height: 295px;
+  width: 280px;
+}
+
+.productCaption{
+  text-align: center;
+}
+
+.productTittles{
+  margin-bottom: 30px;
+}
+
+.productionSections{
+  margin-bottom: 40px;
+}
+
+/* contact page */
+.contactSection{
+  display: flex;
+  justify-content: center;
+}
+.contactList{
+display: flex;
+width: fit-content;
+align-items: center;
+background-image: url("images/address-box-contact.jpg");
+background-size: cover;
+}
+.contactCard{
+  margin: 10px;
+
+}
+.contactIcon{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  height: 270px;
+  width: 250px;
+}
+.contactCaption{
+  color: #000000;
+
+}
+
+span.verticalSeparator {
+  width: 1px;
+  height: 200px;
+  background: #0000003d;
+}
+
+.contactItems{
+  margin: 5px;
+}
+.iconContact {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.itemColorChange{
+  transition: color .3s ease-in-out;
+}
+.iconContact, .contactDescription{
+  color: #a5a5a5;
+}
+.contactCard:hover .itemColorChange{
+  color: #209e2e;
+}
 
   @keyframes slide-right {
     from {
