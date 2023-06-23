@@ -547,7 +547,7 @@ article.whyUs {
   margin-bottom: 30px;
 }
 
-.productionSections{
+.productSections{
   margin-bottom: 40px;
 }
 
@@ -555,13 +555,16 @@ article.whyUs {
 .contactSection{
   display: flex;
   justify-content: center;
+  margin-top: 100px;
 }
 .contactList{
 display: flex;
+flex-direction: row;
 width: fit-content;
 align-items: center;
 background-image: url("images/address-box-contact.jpg");
 background-size: cover;
+box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.1);
 }
 .contactCard{
   margin: 10px;
@@ -577,8 +580,9 @@ background-size: cover;
   width: 250px;
 }
 .contactCaption{
+  font-size: large;
+  font-weight: 600;
   color: #000000;
-
 }
 
 span.verticalSeparator {
@@ -607,6 +611,31 @@ span.verticalSeparator {
   color: #209e2e;
 }
 
+.locationMap{    
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 60px;
+  margin-bottom: 200px;
+}
+.googleMapContainer{
+  width: 90%;
+  height: 400px;
+  display: flex;
+  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.2), 
+              0px 10px 10px 0px rgba(0,0,0,0.3);
+  position: relative;
+  border-radius: 35px;
+  overflow: hidden;
+}
+
+.googleMap{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  right: 0;
+}
+
   @keyframes slide-right {
     from {
       transform: translateX(-100%);
@@ -633,7 +662,15 @@ span.verticalSeparator {
     }
   }
 
+  @media (max-width: 900px){
+    .contactList{
+          flex-direction: column;
+    }
+    .verticalSeparator{
+      display: none;
+    }
 
+  }
 
 
 @media (max-width: 1141px){
