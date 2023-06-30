@@ -1,35 +1,38 @@
 
-const loadcontainer = document.querySelector(".load");
-const loadImage = document.querySelector(".loadImage"); 
 
 // slider variables
-const slideChangeButtom = document.querySelectorAll('.slideChangeButtom');
-const slider = document.querySelector('.slider');
+var slideChangeButtom = document.querySelectorAll('.slideChangeButtom');
+var slider = document.querySelector('.slider');
 
 // slides information variables
-const slideImage = document.querySelectorAll('.slideImage');
-const slideText = document.querySelectorAll('.slideText');
+var slideImage = document.querySelectorAll('.slideImage');
+var slideText = document.querySelectorAll('.slideText');
 
 //slideChangeButtom variables
-const prevButtom = document.querySelector('.previousSlideButtom');
-const nextButtom = document.querySelector('.nextSlideButtom');
-let activeSlide = 0;
+var prevButtom = document.querySelector('.previousSlideButtom');
+var nextButtom = document.querySelector('.nextSlideButtom');
+var activeSlide;
+var slideInterval;
 
 
-//set the first slide on load
-window.onload= ()=>{
+startAutoSlide()
+
+function startAutoSlide(){
+  if(slideInterval){ clearInterval(slideInterval);}
+  resertProgressBar();
+  activeSlide = 0;
   //activate slides
   slideImage[activeSlide].classList.add('active');
   slideText[activeSlide].classList.add('active');
+  slideInterval = setInterval(() => {nextSlide()}, 9000);
+}
 
-  //change slides every 9 seconds
-  setInterval(() => {nextSlide()}, 9000);
-
-  //remove loading image
-  loadImage.style.opacity = 0;
-  setTimeout(()=>{ loadcontainer.style.display = "none"; },500);
-};
-
+function resertProgressBar(){
+  var progressBar = document.querySelector('.progressBar');
+  progressBar.classList.remove("activated");
+  void progressBar.offsetWidth;
+  progressBar.classList.add("activated");
+}
 //show bottoms if mouse in the slider
 slider.addEventListener("mouseover", () => {
   for (let i = 0; i < slideChangeButtom.length; i++) {
@@ -45,11 +48,17 @@ slider.addEventListener("mouseover", () => {
 
 //previous and next buttoms action listener
 prevButtom.addEventListener('click', ()=> {
-prevSlide()
+  resertProgressBar();
+  clearInterval(slideInterval);
+  slideInterval = setInterval(() => {nextSlide()}, 9000);
+  prevSlide();
 });
 
 nextButtom.addEventListener('click', ()=> {
-nextSlide();
+  resertProgressBar();
+  clearInterval(slideInterval);
+  slideInterval = setInterval(() => {nextSlide()}, 9000);
+  nextSlide();
 });
 
 //next slide bottom

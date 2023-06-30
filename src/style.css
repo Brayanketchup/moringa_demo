@@ -114,6 +114,7 @@ overflow: hidden;
 
 .slider{
   overflow: hidden;
+  position: relative;
 }
 
 .progressBar{
@@ -127,7 +128,7 @@ overflow: hidden;
 }
 
 .progressBar.activated{
-  animation: moveBar 9s infinite;
+  animation: moveBar 9s infinite linear;
   }
 
 .slide{
@@ -407,6 +408,8 @@ overflow: hidden;
 
 article.whyUs {
   height: 400px;
+  background-image: url(../images/features-hme-1-bg.jpg);
+  background-size: cover;
 }
 
 .carouselFrame{
@@ -418,6 +421,13 @@ article.whyUs {
 .carouselSection{
   top: 50px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* background-image: url(../images/features-hme-1-bg.jpg);
+  background-size: 100% 500px; */
 }
 
 .moringaPros {
@@ -430,12 +440,15 @@ article.whyUs {
 }
 
 
+
+
 /* rapersettings */
 .wrapper{
   width: 790px;
   background: rgba(0, 0, 0, 0);  
   position: relative;
   overflow: hidden;
+  margin: 15px;
 }
 
  .card{

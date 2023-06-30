@@ -31,3 +31,7 @@ window.addEventListener("scroll", function() {
   } 
   });
   
+
+  function brobro(){
+    console.log("brobrobrobrobrobro");
+  }
