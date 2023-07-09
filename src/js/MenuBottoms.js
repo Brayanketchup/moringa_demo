@@ -1,5 +1,6 @@
 
 //hamburger variables
+let menuButtoms = document.querySelectorAll('menuText');
 const hamburgerMenu = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
 const overlay = document.querySelector('.mobile_display_overlay');
@@ -22,6 +23,7 @@ window.addEventListener('resize', ()=>{
   }
 });
 
+
 // Scroll to the top buttom opacity animation
 window.addEventListener("scroll", function() { 
   var autoScrollButtom = document.querySelector(".autoScrollButtom"); 
@@ -32,6 +34,10 @@ window.addEventListener("scroll", function() {
   });
   
 
-  function brobro(){
-    console.log("brobrobrobrobrobro");
+  function scrollToTop() {
+    // Scroll to the top of the page with smooth behavior
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }

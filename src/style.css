@@ -53,6 +53,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
+  
   }
 
   /* menu personalization */
@@ -133,7 +134,7 @@ overflow: hidden;
 
 .slide{
   
-  height: 650px;
+  height: 700px;
   width: 102%;
   position: relative;
   left: -1%;
@@ -314,6 +315,7 @@ overflow: hidden;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    text-align: center;
 }
 .ColumnWidth{
   width: 45vw;
@@ -407,7 +409,7 @@ overflow: hidden;
 }
 
 article.whyUs {
-  height: 400px;
+  height: 450px;
   background-image: url(../images/features-hme-1-bg.jpg);
   background-size: cover;
 }
@@ -426,8 +428,6 @@ article.whyUs {
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* background-image: url(../images/features-hme-1-bg.jpg);
-  background-size: 100% 500px; */
 }
 
 .moringaPros {
@@ -444,7 +444,8 @@ article.whyUs {
 
 /* rapersettings */
 .wrapper{
-  width: 790px;
+  width:-webkit-fill-available;
+  max-width: 790px;
   background: rgba(0, 0, 0, 0);  
   position: relative;
   overflow: hidden;
@@ -519,10 +520,7 @@ article.whyUs {
   }
 
 
-  /* footer displat down */
-/* #indexFooter{
-  padding-top: 5%;
-} */
+
 
 
   /* product page */
@@ -649,6 +647,31 @@ span.verticalSeparator {
   right: 0;
 }
 
+
+/* 404 section  */
+
+.PageNotFoundSection{
+  background-image: url(/images/404.jpg);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+.notFound {
+  color: white;
+  font-weight: 900;
+}
+
+.notFoundText{
+  margin-bottom: 15px;
+}
+
+
   @keyframes slide-right {
     from {
       transform: translateX(-100%);
@@ -690,7 +713,7 @@ span.verticalSeparator {
     
     .hamburger{
       display: inline-block;
-      right: 3vw;
+      right: 5%;
       position: fixed;
       z-index: 7;
     }
