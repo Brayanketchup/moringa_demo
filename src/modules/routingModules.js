@@ -20,10 +20,37 @@ const routes = {
 };
 
 const contentDiv = document.getElementById('content');
-
 let currentModuleCleanup = null;
 
+
+//function to navigate to each route
 function changeRoute(route) {
+  handleMenu();
+  loadingImage.classList.add('active');
+  if (currentModuleCleanup) {
+    currentModuleCleanup();
+    currentModuleCleanup = null;
+  }
+
+  setTimeout(() => {
+    const moduleFunction = routes[route];
+
+    if (moduleFunction) {
+      moduleFunction();
+      window.history.pushState(route, '', route);
+      currentModuleCleanup = getModuleCleanupFunction(moduleFunction);
+      setTimeout(() => {
+        loadingImage.classList.remove('active')
+      }, 1500)
+    } else {
+      changeRoute('/404');
+    }
+  }, 1500);
+}
+
+
+function popStateHandler(route) {
+  handleMenu();
   loadingImage.classList.add('active');
 
   if (currentModuleCleanup) {
@@ -31,49 +58,21 @@ function changeRoute(route) {
     currentModuleCleanup = null;
   }
 
-
   setTimeout(() => {
-  const moduleFunction = routes[route];
+    const moduleFunction = routes[route];
 
-  if (moduleFunction) {
-    moduleFunction();
-    window.history.pushState(route, '', route);
-    currentModuleCleanup = getModuleCleanupFunction(moduleFunction);
-    setTimeout(()=>{
-      loadingImage.classList.remove('active')
-    }, 1500)
-  }
+    // If a module function is found, execute it
+    if (moduleFunction) {
+      moduleFunction();
+      currentModuleCleanup = getModuleCleanupFunction(moduleFunction);
+      setTimeout(() => {
+        loadingImage.classList.remove('active')
+      }, 1500)
+    } else {
+      changeRoute('/404');
+    }
   }, 1500);
-
 }
-
-function popStateHandler(route) {
-  loadingImage.classList.add('active');
-
-
-if (currentModuleCleanup) {
-  currentModuleCleanup();
-  currentModuleCleanup = null;
-}
-
-
-setTimeout(() => {
-const moduleFunction = routes[route];
-
-// If a module function is found, execute it
-if (moduleFunction) {
-  moduleFunction();
-  currentModuleCleanup = getModuleCleanupFunction(moduleFunction);
-  setTimeout(()=>{
-    loadingImage.classList.remove('active')
-  }, 1500)
-}else{
-  handleMenu();
-  changeRoute('/404');
-}
-}, 1500);
-}
-
 
 
 function getModuleCleanupFunction(moduleFunction) {
@@ -84,9 +83,9 @@ function getModuleCleanupFunction(moduleFunction) {
     return cleanupCarousel;
   }
 
-
   return null;
 }
+
 
 const buttonRoutes = {
   'homeButton': '/',
@@ -96,35 +95,40 @@ const buttonRoutes = {
   'contactButton': '/contact',
 };
 
+//event listener for buttoms
 Object.entries(buttonRoutes).forEach(([buttonId, route]) => {
   const button = document.getElementById(buttonId);
   button.addEventListener('click', () => {
     handleMenu();
     changeRoute(route);
-    
+
   });
 });
 
 
 
-
-function handleMenu(){
+//close menu
+function handleMenu() {
   if (hamburgerMenu.classList.contains('active')) {
     hamburgerMenu.classList.toggle('active');
     menu.classList.toggle('active')
     overlay.classList.toggle('active');
+  }
 }
-}
 
 
-
+//on popstate
 window.addEventListener('popstate', e => {
-
-let url = e.state;
-popStateHandler(url);
+  let url = window.location.pathname;
+  popStateHandler(url);
 });
 
 
 
-// Initial route
-changeRoute('/');
+//get the path name form the url on load
+let urlGo = window.location.pathname;
+if (urlGo === '/index.html') {
+  changeRoute('/');
+} else {
+  changeRoute(urlGo);
+};
