@@ -1,1 +1,9 @@
-
+{
+  "redirects": [
+    {
+      "source": "/moringa",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
